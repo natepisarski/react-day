@@ -1,3 +1,4 @@
+//@flow
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
@@ -14,20 +15,18 @@ class RealApp extends Component {
     render() {
         const defaultStoreReducer = (state = {}, action) => state;
 
-        const ourStoresStore = createStore(
-            reduceReducers(defaultStoreReducer),
-            {hello: 'Redux Message'},
-            compose(this.reduxDevTools(), applyMiddleware(this.loggingMiddleware))
-        );
+        // const ourStoresStore = createStore(
+        //     reduceReducers(defaultStoreReducer),
+        //     {hello: 'Redux Message'},
+        //     compose(this.reduxDevTools(), applyMiddleware(this.loggingMiddleware))
+        // );
 
         return (
-            <Provider store={ourStoresStore}>
                 <div className="App">
                     <Router>
                         <Route exact path="/" component={App}/>
                     </Router>
                 </div>
-            </Provider>
         );
     }
 }
